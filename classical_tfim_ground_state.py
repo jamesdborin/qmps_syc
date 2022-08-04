@@ -1,4 +1,3 @@
-from qmpsyc.classical_opt_tenpy import DMRG_TFIM_infinite, TFIM
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -24,36 +23,18 @@ def infinite_gs_energy(J, g):
 
 if __name__ == '__main__':
 
-    run = True
-    df = pd.read_csv('/home/jamie/Dropbox/QmpSyc/qmpsyc/data/ground_state/classical_gs/reference_gs_energy.csv')
+    df = pd.read_csv('data/gs_data/reference_gs_energy.csv')
     gs = df['g'].to_list()
-    print(len(gs))
-    gs_dmrg = np.linspace(gs[0],gs[-1],20)
-    gs_dmrg30 = np.linspace(gs[0],gs[-1],30)
 
+    J = -1
+    Es = []
+    Es_tdvp=[]
+    Exact_Es = []
+    for g in gs:
+    
+        Exact_Es.append(infinite_gs_energy(-J,g))
 
-    if run:
-        J = -1
-        Es = []
-        Es_tdvp=[]
-        Exact_Es = []
-        for g in gs:
-            #E = DMRG_TFIM_infinite(J=-1, g=g, h=0., Dmax=2)
-            #Es.append(E)
-            # tfim_H = TFIM(g)
-            
-            # mps = iMPS().random(d=2,D=2).left_canonicalise()
-            # iT = -1j*np.linspace(0, 10, 5000)
-            # traj = Trajectory(mps, H=[tfim_H]).eulerint(iT)
-            
-            # E = traj.mps.left_canonicalise().energy([tfim_H])
-            # Es_tdvp.append(E)
-            Exact_Es.append(infinite_gs_energy(-J,g))
-            # print(f'g={g}')
-            # print(f'E={E}')
-        #np.save("dmrg_D2_tfim.npy", Es)
-        # np.save("tdvp_D2_tfim_gs.npy", Es_tdvp)
-        np.save("tfim_exact_gs.npy", Exact_Es)
+    np.save("tfim_exact_gs.npy", Exact_Es)
 
     plt.plot(gs, Exact_Es, label = "Exact")
 

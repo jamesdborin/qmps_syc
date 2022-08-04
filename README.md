@@ -12,3 +12,5 @@ Calculating Overlaps Of Translationally Invariant States: TBC
 Circuits For Time Evolution: circuits_tev.py
 
 Numerics For Time Evolution: timeevolution.py, data_analysis.py, plot_time_series.py, overlaps_classical.py, overlaps_marginal.py. Data is stored in data/time_evo_data/
+
+Some work cannot be recreated due to unavailability of the device. However some device-specific code has been included for reference, such as in floquet.py.

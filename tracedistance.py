@@ -1,17 +1,17 @@
 import numpy as np
 import cirq_google as cg
-from qmpsyc.circuits import (
+from circuits import (
     SSSt, JustEnv, 
     SPCircuit, SECircuit, EPCircuit, 
     AddMeasure,
     D4JustEnv, D4SingleSiteCircuit
     )
 
-from qmpsyc.postpro import (
+from postpro import (
     SampledTrace, ExactTrace, SampledTraceCM
     )
 
-from qmpsyc.simulate import (
+from simulate import (
     SimulateCircuitLocalExact,
     SimulateCircuitLocalNoiseless,
     SimulateCircuitGoogle,
@@ -21,7 +21,6 @@ from qmpsyc.simulate import (
     SimulateCircuitLocalClassicalReadoutError
 )
 
-from qmpsyc.nu_op_calibration import nuop
 
 
 def TraceDistanceAnalytic(Th, Psi, Q):
