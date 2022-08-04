@@ -3,13 +3,13 @@ from scipy.linalg import eig
 import scipy.sparse.linalg.eigen.arpack as arp
 import cirq
 from ncon import ncon
-from qmpsyc.circuits import StateAnsatzRepeatedXZ
+from circuits import StateAnsatzRepeatedXZ
 
 def classically_find_env(U_params,method='Nelder-Mead', testing=False):
     '''
     Find env params classically
     '''
-    from qmpsyc.tracedistance import TraceDistanceAnalytic
+    from tracedistance import TraceDistanceAnalytic
     from functools import partial
     from scipy.optimize import minimize
 
@@ -137,7 +137,7 @@ def state_params_to_unitary(θ):
     '''
     Convert state params for qubit to two qubit unitary.
     '''
-    from qmpsyc.circuits import StateAnsatz
+    from circuits import StateAnsatz
     Q = cirq.LineQubit.range(2)
 
     return cirq.unitary(StateAnsatz(θ).on(*Q))
@@ -281,7 +281,7 @@ def merge(A, B): # TODO Write test for this
     return np.einsum('ijk, klm', A, B).reshape(ai, aj*bj, bk)
 
 def exact_n_overlaps(θ_A, θ_B, n_range, ab=True, all_evals=False):
-    from qmpsyc.circuits import StateAnsatz
+    from circuits import StateAnsatz
 
     Q = cirq.LineQubit.range(2)
 
@@ -300,7 +300,7 @@ def exact_n_overlaps(θ_A, θ_B, n_range, ab=True, all_evals=False):
         pass
 
 if __name__=="__main__":
-    from qmpsyc.circuits import ShallowFullStateAnsatz
+    from circuits import ShallowFullStateAnsatz
 
     np.random.seed(0)
     p0 = np.random.randn(15)
