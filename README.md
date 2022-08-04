@@ -7,7 +7,7 @@ Design and implementation of the translationally invariant ansatz: crcuits.py, e
 
 Analysis of the ground state data, and classical simulations: classical_tfim_ground_state.py, plotting.py. Data is stored in data/gs_data.
 
-Calculating Overlaps Of Translationally Invariant States: TBC
+Calculating Overlaps Of Translationally Invariant States: Time Ev Figure Plotting.ipynb
 
 Circuits For Time Evolution: circuits_tev.py
 
