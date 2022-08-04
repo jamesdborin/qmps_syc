@@ -14,13 +14,13 @@ def import_dummy_data():
 
 def import_data(step):
 
-    exact_smooth = pd.read_csv('/home/jamie/Dropbox/QmpSyc/qmpsyc/data/time_evo_data/classical_interpolated_smooth_step/exact_smooth - data_0.csv')
+    exact_smooth = pd.read_csv('data/time_evo_data/classical_interpolated_smooth_step/exact_smooth - data_0.csv')
 
-    exact = pd.read_csv('/home/jamie/Dropbox/QmpSyc/qmpsyc/images/time_evo_cost_functions/IdentityRightEnvironmentRatio/Exact.csv')
+    exact = pd.read_csv('data/time_evo_data/IdentityRightEnvironmentRatio/Exact.csv')
 
-    exper = pd.read_csv('/home/jamie/Dropbox/QmpSyc/qmpsyc/images/time_evo_cost_functions/IdentityRightEnvironmentRatio/Experiment.csv')
+    exper = pd.read_csv('data/time_evo_data/IdentityRightEnvironmentRatio/Experiment.csv')
 
-    stds = pd.read_csv('/home/jamie/Dropbox/QmpSyc/qmpsyc/images/time_evo_cost_functions/IdentityRightEnvironmentRatio/Stds.csv')
+    stds = pd.read_csv('data/time_evo_data/IdentityRightEnvironmentRatio/Stds.csv')
 
     x_smooth = exact_smooth['step']
 
@@ -49,7 +49,7 @@ def main():
         b=i+1
         e,m,s,x_s,e_s = import_data(f'{a}->{b}')
         plot_data(e,m,s,x_s,e_s)
-        plt.savefig(f'/home/jamie/Dropbox/QmpSyc/qmpsyc/images/time_evo_cost_functions/IdentityRightEnvironmentRatio/{a}_{b}_smooth.pdf')
+        plt.savefig(f'/IdentityRightEnvironmentRatio/{a}_{b}_smooth.pdf')
         plt.show()
 
 

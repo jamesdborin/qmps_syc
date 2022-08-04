@@ -1,16 +1,16 @@
 import numpy as np
 import cirq_google as cg
 
-from qmpsyc.circuits import (
+from circuits import (
     StCircuit, AddHamTerm, AddMeasure, 
     ZZMeasure, IXMeasure, XIMeasure
 )
 
-from qmpsyc.postpro import (
+from postpro import (
     ExactEnergy, SampledEnergy, SampleEnergyCorrected
 )
 
-from qmpsyc.simulate import (
+from simulate import (
     SimulateCircuitLocalExact,
     SimulateCircuitLocalNoiseless,
     SimulateCircuitLocalNoisy,
